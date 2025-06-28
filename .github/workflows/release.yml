@@ -38,24 +38,16 @@ jobs:
       run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
     - name: Create Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      id: create_release
+      uses: softprops/action-gh-release@v1
       with:
         tag_name: ${{ steps.get_version.outputs.version }}
-        release_name: Release ${{ steps.get_version.outputs.version }}
+        name: Release ${{ steps.get_version.outputs.version }}
         draft: false
         prerelease: false
-
-    - name: Upload VSIX to Release
-      uses: actions/upload-release-asset@v1
+        files: vscode-tab-garbage-collector-*.vsix
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./vscode-tab-garbage-collector-*.vsix
-        asset_name: vscode-tab-garbage-collector-${{ steps.get_version.outputs.version }}.vsix
-        asset_content_type: application/octet-stream
 
     - name: Publish to VS Code Marketplace
       if: startsWith(github.ref, 'refs/tags/v')
