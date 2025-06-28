@@ -114,10 +114,36 @@ vscode-tab-garbage-collector/
 │   ├── activityTracker.ts      # Tab activity monitoring
 │   └── configuration.ts        # Settings and configuration management
 ├── package.json                # Extension manifest and dependencies
+├── Makefile                    # Build and release automation
+├── .github/workflows/          # GitHub Actions workflows
 └── README.md                   # This file
 ```
 
 ### Building and Testing
+
+#### Using Makefile (Recommended)
+
+```bash
+# Install dependencies
+make install
+
+# Build the extension
+make build
+
+# Run all checks (lint, test, build)
+make check
+
+# Create VSIX package
+make vsix
+
+# Development mode with watch
+make dev
+
+# Show all available commands
+make help
+```
+
+#### Using npm directly
 
 ```bash
 # Install dependencies
@@ -143,6 +169,65 @@ npm run package
 3. Open multiple files to test the extension
 4. Check the Debug Console for logs
 5. Use the Command Palette to test commands
+
+### Releasing
+
+#### Automated Release (Recommended)
+
+1. **Create a tag** for the new version:
+   ```bash
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+
+2. **GitHub Actions will automatically**:
+   - Build the extension
+   - Create a GitHub release
+   - Upload the VSIX file
+   - Publish to VS Code Marketplace (if VSCE_PAT is configured)
+
+#### Manual Release
+
+```bash
+# Install vsce
+make install-vsce
+
+# Create VSIX package
+make vsix
+
+# Publish to VS Code Marketplace
+make publish
+```
+
+### GitHub Actions
+
+The repository includes automated workflows:
+
+- **Build** (`.github/workflows/build.yml`): Runs on every push to main/master
+  - Lints code
+  - Builds extension
+  - Creates VSIX package
+  - Uploads artifacts
+
+- **Test** (`.github/workflows/test.yml`): Runs on every push and PR
+  - Runs tests
+  - Runs linting
+
+- **Release** (`.github/workflows/release.yml`): Runs on tag push
+  - Creates GitHub release
+  - Uploads VSIX to release
+  - Publishes to VS Code Marketplace
+
+### Required Secrets
+
+For automated publishing to VS Code Marketplace, add this secret to your GitHub repository:
+
+- `VSCE_PAT`: Your VS Code Marketplace Personal Access Token
+
+To get a PAT:
+1. Go to https://dev.azure.com
+2. Create a Personal Access Token with Marketplace (Publish) permissions
+3. Add it to your repository secrets as `VSCE_PAT`
 
 ## Contributing
 
