@@ -2,7 +2,7 @@
   "name": "vscode-tab-garbage-collector",
   "displayName": "Tab Garbage Collector",
   "description": "Automatically closes inactive tabs to keep your workspace clean and organized",
-  "version": "0.0.1",
+  "version": "1.0.4",
   "publisher": "kebroad",
   "icon": "icon.png",
   "engines": {
@@ -90,12 +90,12 @@
   },
   "devDependencies": {
     "@types/minimatch": "^5.1.2",
-    "@types/mocha": "^10.0.10",
+    "@types/mocha": "^11.0.40",
     "@types/node": "20.x",
     "@types/vscode": "^1.101.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
-    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-cli": "^1.0.40",
     "@vscode/test-electron": "^2.5.2",
     "@vscode/vsce": "^3.0.0",
     "eslint": "^9.25.1",

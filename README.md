@@ -243,7 +243,7 @@ This extension is licensed under the MIT License.
 
 ## Changelog
 
-### 0.0.1
+### 1.0.4
 - Initial release
 - Basic tab garbage collection functionality
 - Configuration options

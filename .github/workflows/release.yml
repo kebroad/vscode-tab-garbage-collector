@@ -48,11 +48,3 @@ jobs:
         files: vscode-tab-garbage-collector-*.vsix
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Publish to VS Code Marketplace
-      if: startsWith(github.ref, 'refs/tags/v')
-      run: |
-        echo ${{ secrets.VSCE_PAT }} | vsce login
-        vsce publish
-      env:
-        VSCE_PAT: ${{ secrets.VSCE_PAT }} 
