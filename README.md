@@ -1,4 +1,4 @@
-# VS Code Tab Garbage Collector Extension
+# <img src="icon.png" width="32" height="32" alt="Tab Garbage Collector Icon"> VS Code Tab Garbage Collector Extension
 
 A VS Code extension that automatically closes inactive tabs to keep your workspace clean and organized.
 
