@@ -13,9 +13,6 @@ dist/
 # TypeScript
 *.tsbuildinfo
 
-# Webpack
-webpack.config.js
-
 # Testing
 .vscode-test/
 coverage/
@@ -143,9 +140,6 @@ Thumbs.db
 .vscode-test/
 *.vsix
 *.vsixmanifest
-
-# Webpack build artifacts
-webpack.config.js
 
 # ESLint
 .eslintcache
