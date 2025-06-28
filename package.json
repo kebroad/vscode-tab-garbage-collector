@@ -2,7 +2,7 @@
   "name": "vscode-tab-garbage-collector",
   "displayName": "Tab Garbage Collector",
   "description": "Automatically closes inactive tabs to keep your workspace clean and organized",
-  "version": "0.0.1",
+  "version": "1.0.5",
   "publisher": "kebroad",
   "icon": "icon.png",
   "engines": {
